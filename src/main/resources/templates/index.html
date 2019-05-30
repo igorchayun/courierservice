@@ -12,7 +12,7 @@
     <h4 class="my-3">Add call center task:</h4>
     <form action="#" th:action="@{/}" th:object="${task}" class="form-inline" method="post">
         <label for="orderNum" class="my-1 mr-2">Order Number</label>
-        <input type="text" class="form-control my-3 mr-sm-2"
+        <input type="text" class="form-control my-3 mr-sm-2" autofocus
                id="orderNum" name="orderNumber" th:value="*{orderNumber}" placeholder="Enter order number" />
         <button type="submit" class="btn btn-primary my-3 mr-2">Add</button>
         <div class="alert alert-warning my-1" role="alert"

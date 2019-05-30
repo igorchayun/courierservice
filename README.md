@@ -17,3 +17,5 @@ To start App type the following:
 
 * To view a list of tasks for the call center
 go to url http://localhost:8080/tasks
+
+Call center tasks page refresh every 10 seconds
