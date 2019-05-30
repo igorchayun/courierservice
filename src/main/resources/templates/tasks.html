@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-
 <div class="container">
     <h4 class="my-3">Call center task list:</h4>
     <form action="#" th:action="@{/tasks}" class="form-inline mb-3" method="get">
@@ -17,22 +16,21 @@
                id="filter" name="filter" th:value="${filter}" placeholder="Enter order number" />
         <button type="submit" class="btn btn-primary my-1">Search</button>
     </form>
-    <table class="table">
+    <table class="table table-striped">
         <thead>
         <tr>
-            <th scope="col">Order number</th>
-            <th scope="col">Creation Date</th>
+            <th class="w-75" scope="col">Order number</th>
+            <th class="w-25" scope="col">Creation Date</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="task : ${tasks}">
             <td th:text="${task.orderNumber}">Order number</td>
-            <td th:text="${task.creationDate}">Date</td>
+            <td th:text="${#temporals.format(task.creationDate, 'yyyy-MM-dd HH:mm:SS')}">Date</td>
         </tr>
         </tbody>
     </table>
 </div>
-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

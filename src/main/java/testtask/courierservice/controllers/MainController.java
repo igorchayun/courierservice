@@ -1,6 +1,5 @@
 package testtask.courierservice.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -27,8 +26,15 @@ public class MainController {
     }
 
     @PostMapping("/")
-    public String addTask(@Valid Task task, BindingResult bindingResult) {
+    public String addTask(@Valid Task task, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
+            return "index";
+        }
+        if (!taskMapper.findByOrderNumber(task.getOrderNumber()).isEmpty()) {
+            model.addAttribute(
+                    "orderNumberError",
+                    "Order with number '" + task.getOrderNumber() + "' has already been added to tasks"
+            );
             return "index";
         }
         task.setCreationDate(LocalDateTime.now());

@@ -1,17 +1,15 @@
 package testtask.courierservice.domain;
 
-import org.springframework.format.annotation.DateTimeFormat;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 public class Task {
 
     private Long id;
 
-    @NotEmpty
+    @Size(min=1, max=64, message="Order number must be between 1 and 64 characters")
     private String orderNumber;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime creationDate;
 
     public Long getId() {

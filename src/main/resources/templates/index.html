@@ -12,11 +12,14 @@
     <h4 class="my-3">Add call center task:</h4>
     <form action="#" th:action="@{/}" th:object="${task}" class="form-inline" method="post">
         <label for="orderNum" class="my-1 mr-2">Order Number</label>
-        <input type="text" class="form-control my-1 mr-sm-2"
+        <input type="text" class="form-control my-3 mr-sm-2"
                id="orderNum" name="orderNumber" th:value="*{orderNumber}" placeholder="Enter order number" />
-        <button type="submit" class="btn btn-primary my-1">Add</button>
-        <div class="alert alert-warning" role="alert"
+        <button type="submit" class="btn btn-primary my-3 mr-2">Add</button>
+        <div class="alert alert-warning my-1" role="alert"
              th:if="${#fields.hasErrors('orderNumber')}" th:errors="*{orderNumber}">
+        </div>
+        <div class="alert alert-warning my-1" role="alert"
+             th:if="${orderNumberError}" th:text="${orderNumberError}">
         </div>
     </form>
 </div>

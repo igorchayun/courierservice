@@ -19,7 +19,7 @@ public class TaskController {
     }
 
     @GetMapping
-    public String viewTasks(@RequestParam(required = false, defaultValue = "") String filter, Model model) {
+    public String viewTasks(@RequestParam(required=false, defaultValue="") String filter, Model model) {
         if (!StringUtils.isEmpty(filter)) {
             model.addAttribute("tasks", taskMapper.findByFilter(filter));
         } else {
